@@ -1,0 +1,63 @@
+Instructions:
+preparations
+first you need to convert matlab files to csv. in order to do so,
+arrange in input folder as such:
+input_folder -> project_name : for example "Noga"
+
+PAY ATTENTION - all the matlab file names has to be in this matter population name in CAPITAL letters underscore name of cell
+for example CS_4985.mat or MSN _4547.mat.
+
+now, you can create an instance of decoder, for example:
+
+decode = decoder("/cs/usr/shai.gindin/MATY/Neural_Analyzer/in",
+                    "/cs/usr/shai.gindin/MATY/Neural_Analyzer/out",
+                    ['MSN','SNR','CRB','CS','SS'])
+
+it means that this decoder will convert snr msn and crb files only.
+
+
+
+now to convert matlab to csv call the convert_matlab_to_csv function for example:
+a.convert_matlab_to_csv("cue")
+
+to the folder "/cs/usr/shai.gindin/MATY/Neural_Analyzer/out/csv_files/cue"
+
+if you want to add another popultaion for exanple 'tan', you can press the following command:
+a.population_names.append("tan")
+
+after finished prepations,
+you can run the algorithm
+
+if you want to run for example, the knn algorithm on the the cue experiment on the pursuit  and the sacade with
+the ['MSN','SNR','CRB','CS','SS'] populations do the following command:
+
+a.analyze("cue", lag=500, segments_size = 7) - it means it will cut from 500 ms to 1200ms
+and than choose the folders
+and than choose the simple knn
+
+if you want to apply the simple knn on the the popultaion just write the commands
+
+a.analyze("cue", lag=1000, segments_size = 6) - because in the cue trials there are only 1600ms
+
+now make new project with 2200 ms trials
+a.convert_matlab_to_csv("project_with_matlab_files_with_2200ms_trials")
+
+now lets analyze simple knn only on SNR and MSN
+a.population_names  = ['SNR','MSN']
+a.analyze("project_with_matlab_files_with_2200ms_trials") - because the defauls parametes is  2200ms
+and than follow the commands
+
+
+remarks**
+each time you will run one of the algorithm it will ask you with dependent value you want.
+in option are from you matlab file you created. it means that in the matlab file the program
+will search for all the vectors and its name
+
+
+
+#set the population names
+a.population_names  = ['CRB']
+
+
+
+

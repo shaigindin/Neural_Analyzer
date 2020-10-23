@@ -1,0 +1,43 @@
+plot_acurracy_comparision(one: str, two: str) -
+    This method receives two paths for two data files, 
+    and plots the data in a way that the x-axis is the accuracy of the 
+    samples in the first file (one), and the y-axis is the accuracy of the 
+    samples in the second file (two).
+    **EXAMPLE** :  plot_acurracy_comparision("/data_dir/SNR", "/data_dir/CRB")    
+
+
+plot_fragments(files: List[str], concat = List[int]) -
+    This method receives a list of files (files), and the number of concatenated cells to
+    show (concat).
+    And it plots the framents graph for each population it finds in the dir.
+    **EXAMPLE** : plot_fragments(['/data_dir/fragments/'], [1, 10, 20, 30])
+
+def plot_histogram(files: List[str] = None) - 
+    This method receives a list of data files, and prints the histogram of each data file.
+    **EXMAPLE** : plot_histogram(['/data_dir'])
+
+plot_acc_over_concat_cells(files: Tuple[List[str]] = None, number_of_concat_cells: int = 100, ticks: int = 1) -
+    Drawing a graphs of accuracies over number of concatenated cells, of all the populations selected.
+     and of all of the experiment types.
+    It hase three arguments files - which is a list of data files,
+                            number_of_concat_cells - which is the number of concated cells to show
+                            ticks - number of ticks on the x-axis.
+    **EXAMPLE** : plot_acc_over_concat_cells((['data_files/SNR','data_files/CRB'],), 50, 1)
+
+    important : the input is tuple of folders : (folder1,folder2,...)
+    it will print all the folders garph by graph together in the same image for example
+    calling the function
+    plot_acc_over_concat_cells( (['out/pursuit/simple_knn'], ['out/saccade//simple_knn')] )  )
+    will print two graphs, side by side of all the population in pursuit and in the other graph
+    will print all the population of saccade
+
+    if you want to print only the pursuit graph folder
+    do the command:
+    plot_acc_over_concat_cells( (['out/pursuit/simple_knn'],) )
+
+    if you want to print only snr and crb from pursuit
+    do the command
+    plot_acc_over_concat_cells(['out/pursuit/simple_knn/SNR','out/pursuit/simple_knn/SNR'])
+
+
+
